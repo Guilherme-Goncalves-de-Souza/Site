@@ -1,0 +1,652 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+section {
+  background-color: white !important;
+}
+
+.redes-sociais h2,
+.sobre-mim h2,
+.propostas h2 {
+  font-size: 2.5rem;
+  font-family: "Roboto", system-ui;
+  font-weight: 700;
+  font-style: normal;
+
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #626262;
+  width: 50%;
+  padding-bottom: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  padding: 10px 40px;
+  background-color: white;
+  border-bottom: 2px solid #ddd;
+  position: relative;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 100px;
+  margin: 0 20px;
+}
+
+.separator {
+  width: 2px;
+  height: 100px;
+  background-color: #000;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Estilo do menu padrão para desktop */
+.desktop-menu {
+  display: flex;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.menu-list li {
+  margin: 0 10px;
+}
+
+.menu-list a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
+.menu-list a:hover {
+  background-color: #ddd;
+}
+
+/* Estilo do modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.active {
+  display: block;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 20px;
+  border: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.close {
+  color: #333;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* Estilo do menu dentro da modal */
+.modal .menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.modal .menu-list li {
+  margin: 15px 0;
+}
+
+.modal .menu-list a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
+.modal .menu-list a:hover {
+  background-color: #ddd;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  justify-content: center;
+  width: 100%;
+}
+
+.carousel-img {
+  flex-shrink: 0;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.carousel-img {
+  display: none;
+}
+
+.carousel-img.active {
+  display: block;
+}
+
+/* Estilo das setas */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+/* Estilo das bolinhas de navegação */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #717171;
+}
+
+.sobre-mim {
+  padding: 40px 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sobre-mim-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sobre-mim-imagem {
+  flex: 1;
+}
+
+.sobre-mim-imagem img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.sobre-mim-texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sobre-mim p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.sobre-mim #destaque {
+  color: #039238;
+  animation: blink 2s infinite;
+}
+
+.sobre-mim-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sobre-mim-lista li {
+  font-size: 1rem;
+  margin: 10px 0;
+  line-height: 1.6;
+  color: #444;
+}
+
+.sobre-mim-lista strong {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Seção Propostas */
+.propostas {
+  padding: 40px 20px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card-proposta {
+  flex: 1 1 300px;
+  max-width: 300px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-proposta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-titulo {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #2b6cb0;
+}
+
+.card-descricao {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Seção WhatsApp Invite */
+.whatsapp-invite {
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.invite-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 20px;
+  width: 100%;
+}
+
+.invite-icon {
+  height: 300px;
+  width: auto;
+}
+
+.invite-text {
+  flex: 1;
+  text-align: left;
+  padding-left: 20px;
+  max-width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.invite-titulo {
+  font-family: "Roboto", system-ui;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.invite-descricao {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.invite-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #25d366;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+  animation: blink 2s infinite;
+}
+
+.invite-link:hover {
+  background-color: #128c7e;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Seção Redes Sociais */
+.redes-sociais {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redes-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.redes-card {
+  flex: 1 1 300px;
+  max-width: 300px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.redes-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.redes-icon {
+  height: 60px;
+}
+
+.redes-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #2b6cb0;
+}
+
+.redes-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: #25d366;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: rgb(44, 105, 57);
+}
+
+.footer {
+  background-color: #162c42;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  max-width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  padding: 15px;
+  border-radius: 55800px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.scroll-to-top:hover {
+  background-color: #128c7e;
+}
+
+.scroll-icon {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (max-width: 1000px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .modal-content {
+    height: 50%;
+  }
+
+  .sobre-mim-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-mim-imagem {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .sobre-mim-texto {
+    padding: 0 20px;
+  }
+
+  .invite-icon {
+    height: 150px;
+    width: auto;
+    margin-left: 50px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .invite-card {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .invite-icon {
+    margin-left: 0;
+    margin-bottom: 50px;
+  }
+
+  .invite-text {
+    padding-left: 0x;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .menu-list a {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .menu-list {
+    flex-direction: column;
+  }
+
+  .carousel-img {
+    height: 400px;
+  }
+
+  .card-proposta {
+    flex: 1 1 100%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .navbar {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .invite-titulo {
+    font-size: 1.8rem;
+  }
+
+  .redes-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .redes-card p {
+    font-size: 0.8rem;
+  }
+
+  .footer p {
+    font-size: 0.8rem;
+  }
+
+  .redes-sociais h2,
+  .sobre-mim h2,
+  .propostas h2 {
+    font-size: 1.8rem;
+  }
+
+  .invite-descricao {
+    font-size: 1.2rem;
+  }
+
+  .invite-text {
+    padding-left: 0x;
+    max-width: 100%;
+    text-align: center;
+  }
+}
