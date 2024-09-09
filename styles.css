@@ -287,6 +287,7 @@ section {
   margin-bottom: 20px;
   line-height: 1.5;
   color: #555;
+  text-align: center;
 }
 
 .sobre-mim #destaque {
@@ -456,6 +457,8 @@ section {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit; /* Remove a cor padrão do link */
 }
 
 .redes-card:hover {
@@ -469,14 +472,15 @@ section {
 
 .redes-card h3 {
   font-size: 1.8rem;
-  margin-bottom: 10px;
   color: #2b6cb0;
 }
 
-.redes-card p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 15px;
+.redes-card-container a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 .btn {
@@ -584,7 +588,7 @@ section {
 
   .invite-icon {
     margin-left: 0;
-    margin-bottom: 50px;
+    margin-bottom: -25px;
   }
 
   .invite-text {
